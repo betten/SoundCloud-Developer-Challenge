@@ -1,0 +1,40 @@
+<% uid = (Time.now.to_i + 100*rand(9) + 10*rand(9) + rand(9)).to_s %>
+
+<html>
+  <head>
+    <title>SoundCloud - Developer Challenge</title>
+    <link rel="stylesheet" href="css/challenge.css" type="text/css" />
+    <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="js/challenge.js"></script>
+    <script type="text/javascript">
+	var UID = '<%= uid %>';
+	$(document).ready(function() {
+		$('#progress').ajaxError(function(event, request, settings) {
+			console.log(event);
+			console.log(request);
+			console.log(settings);
+			$(this).text('hm, there seems to have been an error...');
+		});
+		// When the user picks a file from their computer and optionally presses the submit button, the upload begins.
+		$('#upload-form').submit(function() {
+			$('#status').text('');
+			$('#progress').text('starting upload...');
+			updateUploadProgress();
+		});
+	});
+    </script>
+  </head>
+
+  <body>
+    <h1>SoundCloud - Developer Challenge</h1>
+    <h2>Mike Betten</h2>
+
+    <label id="title-label"><input id="title" type="text" value="" />(title added as soon as upload is complete)</label>
+    <form id="upload-form" action="/upload?uid=<%= uid %>" method="POST" enctype="multipart/form-data" target="uploader">
+	<input type="file" name="file" /><input type="submit" value="Upload" />
+    </form>
+    <div id="status"></div>
+    <div id="progress"></div>
+    <iframe id="uploader" name="uploader"></iframe>
+  </body>
+</html>

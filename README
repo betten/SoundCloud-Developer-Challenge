@@ -1,0 +1,27 @@
+SoundCloud Developer Challenge 
+
+Design and implement a system that will accept a multipart form upload (say, containing an audio file) while displaying a percentage progress.
+
+The basic HTML design should look like:
+
+Display form with file input field
+Display a title text field
+Display a status text paragraph "select file"
+Optionally display a submit button
+Specification:
+
+When the user picks a file from their computer and optionally presses the submit button, the upload begins.
+While uploading, the status text paragraph should be updating with the current percentage complete at least once every 2 seconds.
+While uploading, the user should be able to enter text into the title text field.
+When the upload completes, the status text should display the path on the server to the saved file and the current value of the title text field should be posted to the server. The response to the form post request should display both the title and the path to the file.
+
+Requirements:
+
+The upload should honor proxy settings on the browser
+The system must function behind a firewall that blocks all but port 80
+The server must support at least 2 concurrent uploads
+Any technology that can be web deployed to IE, Firefox, Safari, Chrome on any platform is supported
+
+===========================
+
+This solution, using ruby and no plug-ins as specified, uses  WEBrick servlets to handle file upload with ajax requests to display progress to user.

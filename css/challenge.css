@@ -1,0 +1,9 @@
+body {
+	font-family:arial;
+}
+#uploader {
+	display:none;
+}
+#title-label {
+	font-size:11px;
+}
