@@ -25,3 +25,5 @@ Any technology that can be web deployed to IE, Firefox, Safari, Chrome on any pl
 ===========================
 
 This solution, using ruby and no plug-ins as specified, uses  WEBrick servlets to handle file upload with ajax requests to display progress to user.
+
+Server set to run on port 8090. Run with ruby server.rb
